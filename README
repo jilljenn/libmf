@@ -1,6 +1,12 @@
 LIBMF is a library for large-scale sparse matrix factorization. For the
 optimization problem it solves and the overall framework, please refer to [3].
 
+Quickstart
+==========
+
+    cd demo
+    ./demo.sh  # Second part takes times
+    python ndcg.py ocmf_output.txt ocmf_output2.txt
 
 
 Table of Contents
