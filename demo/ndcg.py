@@ -8,10 +8,10 @@ import sys
 
 # df_train = pd.read_csv('/home/jj/Documents/Mangaki/mugen_train.csv', sep=' ', names=('user', 'item', 'v'))
 # df = pd.read_csv('/home/jj/Documents/Mangaki/mugen_test.csv', sep=' ', names=('user', 'item', 'v'))
-df_train = pd.read_csv('/home/jj/code/cfdr/code/gottlieb_train.csv', sep=' ', names=('user', 'item', 'v'))
-df = pd.read_csv('/home/jj/code/cfdr/code/gottlieb_test.csv', sep=' ', names=('user', 'item', 'v'))
-# df_train = pd.read_csv('all_one_matrix.tr.txt', sep=' ', names=('user', 'item', 'v'))
-# df = pd.read_csv('all_one_matrix.te.txt', sep=' ', names=('user', 'item', 'v'))
+# df_train = pd.read_csv('/home/jj/code/cfdr/code/gottlieb_train.csv', sep=' ', names=('user', 'item', 'v'))
+# df = pd.read_csv('/home/jj/code/cfdr/code/gottlieb_test.csv', sep=' ', names=('user', 'item', 'v'))
+df_train = pd.read_csv('all_one_matrix.tr.txt', sep=' ', names=('user', 'item', 'v'))
+df = pd.read_csv('all_one_matrix.te.txt', sep=' ', names=('user', 'item', 'v'))
 df['user_id'] = np.unique(df['user'], return_inverse=True)[1]
 df['item_id'] = np.unique(df['item'], return_inverse=True)[1]
 encode_user = dict(df[['user', 'user_id']].drop_duplicates().to_numpy())
