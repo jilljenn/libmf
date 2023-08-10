@@ -46,13 +46,14 @@ $train -f 10 -l2 0.01 -k 32 -p all_one_matrix.te.txt all_one_matrix.tr.txt ocmf_
 $predict -e 10 all_one_matrix.te.txt ocmf_model.txt ocmf_output.txt
 # Do prediction and show row-oriented AUC
 $predict -e 12 all_one_matrix.te.txt ocmf_model.txt ocmf_output.txt
+$predict -e 12 all_one_zero_matrix.te.txt ocmf_model.txt ocmf_output_all.txt
 
-echo "----------------------------------------------------------------"
-echo "one-class matrix factorization using a coordinate descent method"
-echo "----------------------------------------------------------------"
-# In-memory training with holdout validation
-$train -f 12 -l2 0.01 -k 32 -a 0.001 -c 0.0001 -p all_one_matrix.te.txt all_one_matrix.tr.txt ocmf_model.txt
-# Do prediction and show row-oriented MPR
-$predict -e 10 all_one_matrix.te.txt ocmf_model.txt ocmf_output2.txt
-# Do prediction and show row-oriented AUC
-$predict -e 12 all_one_matrix.te.txt ocmf_model.txt ocmf_output2.txt
+# echo "----------------------------------------------------------------"
+# echo "one-class matrix factorization using a coordinate descent method"
+# echo "----------------------------------------------------------------"
+# # In-memory training with holdout validation
+# $train -f 12 -l2 0.01 -k 32 -a 0.001 -c 0.0001 -p all_one_matrix.te.txt all_one_matrix.tr.txt ocmf_model.txt
+# # Do prediction and show row-oriented MPR
+# $predict -e 10 all_one_matrix.te.txt ocmf_model.txt ocmf_output2.txt
+# # Do prediction and show row-oriented AUC
+# $predict -e 12 all_one_matrix.te.txt ocmf_model.txt ocmf_output2.txt
