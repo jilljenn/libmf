@@ -47,7 +47,7 @@ for filename in sys.argv[1:]:
     auc_values = []
     better_auc_values = []
     normalized_row_auc_values = []
-    for user_id in tqdm(df['user_id'].unique()[:20]):
+    for user_id in tqdm(df['user_id'].unique()):
         this_user = df_test.query("user_id == @user_id")
         # print(this_user)
         this_user_pos = this_user.query("v == 1")
@@ -56,7 +56,7 @@ for filename in sys.argv[1:]:
         nb_neg = len(this_user_neg)
         this_user_pairs = this_user_pos.merge(this_user_neg, how='cross')
         # print(this_user_pairs.head())
-        okay_pairs = this_user_pairs.apply(lambda row: row['pred_x'] < row['pred_y'], axis=1)
+        okay_pairs = this_user_pairs.apply(lambda row: row['pred_x'] > row['pred_y'], axis=1)
         normalized_row_auc_values.append(sum(okay_pairs) / (nb_pos * nb_neg))
         # print(this_user_pairs.shape)
         # print(normalized_row_auc_values)
